@@ -1,0 +1,33 @@
+[package]
+name = "random-password-generator"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+description = "离线随机密码生成器（Rust + iced）"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+iced = { version = "0.14", default-features = false, features = [
+    "tiny-skia",
+    "crisp",
+    "smol",
+    "advanced-shaping",
+] }
+getrandom = "0.4"
+zeroize = "1"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = [
+    "Win32_Foundation",
+    "Win32_System_DataExchange",
+    "Win32_System_Memory",
+] }
+
+[profile.release]
+# Thin LTO 在体积与内存之间取平衡；fat LTO + 单 codegen unit 在 16 GB 机器上
+# 容易因内存不足被系统终止。
+opt-level = 3
+lto = "thin"
+codegen-units = 16
+strip = true
+panic = "abort"
