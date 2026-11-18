@@ -1,7 +1,8 @@
 # 随机密码生成器（Rust + iced）
 
-Windows 桌面随机密码生成器，原生 Rust + [iced 0.14](https://iced.rs) 实现，
-使用 tiny-skia 软件渲染，**完全离线、单文件运行**。
+本程序参考了[linuxdo-app-password-workshop](https://github.com/yfmeii/linuxdo-app-password-workshop) UI 设计
+使用原生 Rust + [iced 0.14](https://iced.rs) 实现，
+使用 tiny-skia 软件渲染方案，**做到完全离线、单文件运行**。
 
 - 无 WebView2、无安装程序、无外部运行时；静态链接 MSVC CRT，无需 VC++ Redistributable。
 - 无网络、无文件写入：密码只存在于内存中，退出或换一组时清零旧缓冲。
