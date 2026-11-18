@@ -29,5 +29,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: windows-x86_64
-          path: target/release/random-password-generator-windows-x86_64.exe
+          path: target/release/random-password-generator.exe
           if-no-files-found: error
